@@ -15,11 +15,11 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/gzosp_arm.mk \
-    $(LOCAL_DIR)/gzosp_arm64.mk \
-    $(LOCAL_DIR)/gzosp_x86.mk
+    $(LOCAL_DIR)/tesla_arm.mk \
+    $(LOCAL_DIR)/tesla_arm64.mk \
+    $(LOCAL_DIR)/tesla_x86.mk
 
 COMMON_LUNCH_CHOICES := \
-    gzosp_arm-userdebug \
-    gzosp_arm64-userdebug \
-    gzosp_x86-userdebug
+    tesla_arm-userdebug \
+    tesla_arm64-userdebug \
+    tesla_x86-userdebug
