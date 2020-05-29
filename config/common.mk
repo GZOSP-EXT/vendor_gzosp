@@ -65,7 +65,6 @@ PRODUCT_COPY_FILES += \
 
 # privapp permissions
 PRODUCT_COPY_FILES += \
-    vendor/tesla/prebuilt/common/etc/permissions/privapp-permissions-gzr.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-gzr.xml \
     vendor/tesla/prebuilt/common/etc/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google.xml \
     vendor/tesla/config/permissions/privapp-permissions-tesla-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-tesla.xml
 
@@ -81,9 +80,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
      OverlayStub
 
-# Power whitelist
+# whitelist
 PRODUCT_COPY_FILES += \
-    vendor/tesla/config/permissions/tesla-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/tesla-power-whitelist.xml
+    vendor/tesla/config/permissions/tesla-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/tesla-power-whitelist.xml \
+    vendor/tesla/config/permissions/tesla-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/tesla-hiddenapi-package-whitelist.xml \
+    vendor/tesla/config/permissions/privapp-permissions-google_prebuilt.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google_prebuilt.xml \
+    vendor/tesla/config/permissions/privapp-permissions-tesla-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-tesla-product.xml
+
+# Hidden api whitelisted apps
+PRODUCT_COPY_FILES += \
+
 
 # Required packages
 PRODUCT_PACKAGES += \
@@ -117,8 +123,7 @@ PRODUCT_PACKAGES += \
     Calculator \
     LatinIME \
     BluetoothExt \
-    Launcher3Dark
-
+    NexusLauncherRelease
 
 # Extra tools
 PRODUCT_PACKAGES += \

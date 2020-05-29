@@ -44,13 +44,14 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	for part_cnt in 0 1 2; do \
 	    mkdir -p $(INTERMEDIATES)/part$$part_cnt; \
 	done; \
-prebuilts/tools-gzosp/${HOST_OS}-x86/bin/mogrify -resize $$RESOLUTION -colors 250 $(INTERMEDIATES)/*/*.png; \
-	echo "$$IMAGESCALEWIDTH $$IMAGESCALEWIDTH 24" > $(INTERMEDIATES)/desc.txt; \
+	prebuilts/tools-gzosp/${HOST_OS}-x86/bin/mogrify -resize $$RESOLUTION -colors 250 $(INTERMEDIATES)/*/*.png; \
+	echo "$$IMAGESCALEWIDTH $$IMAGESCALEWIDTH 30" > $(INTERMEDIATES)/desc.txt; \
 	cat vendor/tesla/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
 	$(hide) $(SOONG_ZIP) -L 0 -o $(TARGET_GENERATED_BOOTANIMATION) -C $(INTERMEDIATES) -D $(INTERMEDIATES)
 
 ifeq ($(TARGET_BOOTANIMATION),)
     TARGET_BOOTANIMATION := $(TARGET_GENERATED_BOOTANIMATION)
+endif
 
 ifeq ($(TARGET_SCREEN_WIDTH),)
     $(error TARGET_SCREEN_WIDTH must be set)
