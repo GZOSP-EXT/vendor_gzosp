@@ -24,7 +24,7 @@
 WORKING_DIR=$( cd $( dirname $( readlink -f "${BASH_SOURCE[0]}" ) )/../../.. && pwd )
 
 # The tag you want to merge in goes here
-BRANCH=android-${1}
+BRANCH=android-10.0.0_r37
 
 # Manifest branch
 DU_MANIFEST=gzosp_default.xml
