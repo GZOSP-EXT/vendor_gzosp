@@ -168,30 +168,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/tesla/overlay/common
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# Versioning System
-# tesla first version.
-PRODUCT_VERSION_MAJOR = 10
-PRODUCT_VERSION_MINOR = Alpha
-PRODUCT_VERSION_MAINTENANCE = 1.0
-TESLA_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
-ifdef TESLA_BUILD_EXTRA
-    TESLA_POSTFIX := -$(TESLA_BUILD_EXTRA)
-endif
-
-ifndef TESLA_BUILD_TYPE
-    TESLA_BUILD_TYPE := UNOFFICIAL
-endif
-
-# Set all versions
-TESLA_VERSION := Tesla-$(TESLA_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(TESLA_BUILD_TYPE)$(TESLA_POSTFIX)
-TESLA_MOD_VERSION := TESLA-$(TESLA_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(TESLA_BUILD_TYPE)$(TESLA_POSTFIX)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    BUILD_DISPLAY_ID=$(BUILD_ID) \
-    tesla.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.tesla.version=$(TESLA_VERSION) \
-    ro.modversion=$(TESLA_MOD_VERSION) \
-    ro.tesla.buildtype=$(TESLA_BUILD_TYPE)
+-include vendor/tesla/config/versions.mk
 
 # Google sounds
 include vendor/tesla/google/GoogleAudio.mk
